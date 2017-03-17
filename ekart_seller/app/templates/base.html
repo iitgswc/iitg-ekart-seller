@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="description" content="">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <link href="{% static 'icons/material-icons.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fscp.css' %}">
+    {% block custom_styles %}{% endblock %}
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Campus Cart</a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{% url 'item-list' %}">Item List</a></li>
+                    <li><a href="{% url 'item-create' %}">Add Item</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-nav">
+                    <li><a href="{% url 'item-list' %}">Item List</a></li>
+                    <li><a href="{% url 'item-create' %}">Add Item</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block breadcrumb %}{% endblock %}
+</header>
+
+<main>
+	{% block main %}{% endblock %}
+</main>
+
+<footer class="page-footer fixed grey darken-1">
+	<div class="container">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">Ekart, IIT Guwahati</h5>
+				<p class="white-text">
+                    Lorem ipsum dolor sit amet, duis congue eligendi et eum,
+                    doctus timeam fabellas an pri, augue molestie reformidans
+                    nec ut. Vix solet detraxit te. Sit ne zril invidunt.
+                    Fabellas sapientem neglegentur vel te. Tacimates sensibus
+                    mediocritatem qui ut, eu per porro erroribus percipitur,
+                    eius mediocrem id has. Antiopam vulputate inciderint ex.
+				</p>
+			</div>
+			<div class="col l3 s12">
+				<h5 class="white-text">Header</h5>
+				<ul>
+					<li><a class="white-text" href="#">Link1</a></li>
+					<li><a class="white-text" href="#">Link2</a></li>
+				</ul>
+			</div>
+			<div class="col l3 s12">
+				<h5 class="white-text">Connect</h5>
+				<ul>
+					<li><a class="white-text" href="#">Link1</a></li>
+					<li><a class="white-text" href="#">Link2</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright grey darken-4">
+		<div class="container">
+			&copy; SWC, IIT Guwahati.
+		</div>
+	</div>
+</footer>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+
+<script>
+	$(document).ready(function(){
+	    $(".dropdown-button").dropdown();
+	    $('select').material_select();
+		$('.toc-wrapper').pushpin({
+			top: 250
+		});
+		$('.scrollspy').scrollSpy();
+	});
+	$('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 5,
+        format: 'yyyy-mm-dd'
+      });
+	$(".button-collapse").sideNav({
+	    closeOnClick: true,
+        draggable: true
+    });
+</script>
+
+{% block end_scripts %}{% endblock %}
+
+</body>
+</html>

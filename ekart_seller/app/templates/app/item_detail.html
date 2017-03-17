@@ -1,0 +1,100 @@
+{% extends 'base.html'%}
+
+{% block title %}Item Detail{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="section">
+                <h4>Item Details</h4>
+                <div class="divider bottom10"></div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Product Name
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        {{ item.name }}
+                    </div>
+                </div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Description
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        <a href="">{{ item.description }}</a>
+                    </div>
+                </div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Details
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        {{ item.details }}
+                    </div>
+                </div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Price
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        {{ item.price }}
+                    </div>
+                </div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Estimated Delivery Date
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        {{ item.delivery_date }}
+                    </div>
+                </div>
+                <div class="row model-field">
+                    <div class="col l2 m3 s4 field-name">
+                        Other Features
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        {{ item.other_features }}
+                    </div>
+                </div>
+                <div class="row model-field hide-on-small-and-down">
+                    <div class="col l2 m3 s4 field-name">
+                        Image 1
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        <img class="responsive-img"
+                             src="{{ item.image1.url }}" style="max-width: 60%">
+                    </div>
+                </div>
+                <div class="row model-field hide-on-small-and-down">
+                    <div class="col l2 m3 s4 field-name">
+                        Image 2
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        <img class="responsive-img"
+                             src="{% if item.image2 %} {{ item.image2.url }} {% endif %}">
+                    </div>
+                </div>
+                <div class="row model-field hide-on-small-and-down">
+                    <div class="col l2 m3 s4 field-name">
+                        Image 3
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        <img class="responsive-img"
+                             src="{% if item.image3 %} {{ item.image3.url }} {% endif %}">
+                    </div>
+                </div>
+                <div class="row model-field hide-on-small-and-down">
+                    <div class="col l2 m3 s4 field-name">
+                        Image 4
+                    </div>
+                    <div class="col l10 m9 s8 field-value">
+                        <img class="responsive-img"
+                             src="{% if item.image4 %} {{ item.image4.url }} {% endif %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

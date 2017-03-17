@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Item{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div class="section">
+                    <h4 class="header">Create Item</h4>
+                    <div class="divider" style="margin-bottom: 10px"></div>
+                    <form method="post" class="col s12" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'field_mdl.html' with field=form.product_name %}
+                        {% include 'field_mdl.html' with field=form.description %}
+                        {% include 'field_mdl.html' with field=form.details %}
+                        {% include 'field_mdl.html' with field=form.price %}
+                        {% include 'field_mdl.html' with field=form.delivery_date %}
+                        {% include 'field_mdl.html' with field=form.other_features %}
+                        <div class="row">
+                            <div class="file-field input-field col s12">
+                                <div class="btn">
+                                    <span>Image 1</span>
+                                    <input type="file" name="image1">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path" id="{{ form.image1.id_for_label }}" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="file-field input-field col s12">
+                                <div class="btn">
+                                    <span>Image 2</span>
+                                    <input type="file" name="image2">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path" id="{{ form.image2.id_for_label }}" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="file-field input-field col s12">
+                                <div class="btn">
+                                    <span>Image 3</span>
+                                    <input type="file" name="image3">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path" id="{{ form.image3.id_for_label }}" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="file-field input-field col s12">
+                                <div class="btn">
+                                    <span>Image 4</span>
+                                    <input type="file" name="image4">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path" id="{{ form.image4.id_for_label }}" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" name="_submit" class="btn">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block end_scripts %}
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+{% endblock %}
